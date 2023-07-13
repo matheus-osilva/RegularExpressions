@@ -33,7 +33,7 @@ NFA::NFA(std::string regexp) : G(regexp.size() + 1) {
         if (re[i] == '\\') {
             if (i < M - 1) {
                 char nextChar = re[i + 1];
-                if (nextChar == '*' || nextChar == '(' || nextChar == ')' || nextChar == '|') {
+                if (nextChar == '*' || nextChar == '(' || nextChar == ')' || nextChar == '|' || nextchar == '[' || nextchar == ']' || nextchar == '.' || nextchar == '^') {
                     G.addEdge(i, i + 2);
                     G.addEdge(i + 2, i + 3);
                     i++;
