@@ -24,10 +24,10 @@ NFA::NFA(std::string regexp) : G(regexp.size() + 1) {
                 lp = ops.top();
                 ops.pop();
                 G.addEdge(lp, or_op + 1);
+                G.addEdge(or_op, i);
             } else {
                 lp = or_op;
             }
-            G.addEdge(or_op, i);
         }
 
         if (re[i] == '\\') {
